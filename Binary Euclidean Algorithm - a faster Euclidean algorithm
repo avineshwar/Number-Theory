@@ -1,0 +1,36 @@
+import java.util.*;
+
+class binaryEuclideanAlgorithm {
+
+public static int EuclidBinaryGCD(Integer a, Integer b) {
+if (a == 0) { return b;}
+else if (b == 0) { return a;}
+else if (a % 2 == 0 && b % 2 == 0) {
+return (2 * EuclidBinaryGCD(a/2, b/2));
+}
+else if(a % 2 == 0 && !(b % 2 == 0)) {
+return EuclidBinaryGCD(a/2,b);
+}
+else if(!(a % 2 == 0) && b % 2 == 0) {
+return EuclidBinaryGCD(a,b/2);
+}
+else { // a and b, both are odd here
+if(a-b < 0) {
+int modder = -1 * (a-b);
+int min = (a < b)? a:b;
+return EuclidBinaryGCD(modder/2,min);
+}
+int min = (a < b)? a:b;
+return EuclidBinaryGCD((a-b),min);
+}
+}
+
+public static void main(String[] args) {
+int int1, int2, gcd = 0;
+Scanner scanner = new Scanner(System.in);
+int1 = scanner.nextInt();
+int2 = scanner.nextInt();
+gcd = EuclidBinaryGCD(int1, int2);
+System.out.println("GCD of " + int1 + " and " + int2 + " is: " + gcd + "\n\n");
+}
+}
