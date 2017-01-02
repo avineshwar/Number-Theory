@@ -1,0 +1,21 @@
+import java.util.*;
+
+class BruteForceExponentiation {
+public static int naive_expo(int a, int p, int n) {
+int result = 1;
+for(int i = 1; i <=p; i++) {
+result = (result * a) % n;
+}
+return result;
+}
+public static void main(String[] args) {
+int a = 0, p = 0, n = 0;
+Scanner scanner = new Scanner(System.in);
+a = scanner.nextInt();
+p = scanner.nextInt();
+n = scanner.nextInt();
+int result = naive_expo(a,p,n); // r = a^p mod n
+System.out.println("Result is: " + result);
+//System.out.println("\n\nExponentiation is: " + result + " = " + a + "^" + p + " mod " n);
+}
+}
